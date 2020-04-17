@@ -7,18 +7,17 @@ import { UserApp } from './user/user';
 })
 export class UserService {
 
-  constructor(private db:AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase) { }
 
 
-  saveUser(user:firebase.User){
-    this.db.object("/users/"+user.uid).update({
-      name:user.displayName,
-      email:user.email
+  saveUser(user: firebase.User) {
+    this.db.object("/users/" + user.uid).update({
+      name: user.displayName,
+      email: user.email
     });
   }
 
-  getUser(uid:string):FirebaseObjectObservable<UserApp>
-  {
-    return this.db.object("/users/"+uid);
+  getUser(uid: string): FirebaseObjectObservable<UserApp> {
+    return this.db.object("/users/" + uid);
   }
 }

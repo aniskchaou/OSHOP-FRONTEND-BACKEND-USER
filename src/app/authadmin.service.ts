@@ -8,15 +8,16 @@ import { CanActivate } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthAdminService implements CanActivate {
- 
-  constructor(private authService:AuthService,private userService:UserService) { }
 
-  canActivate():Observable<boolean>
-  {
-    return  this.authService.authF.authState
-    .switchMap(user=> this.userService.getUser(user.uid))
-      .map(appUser=>appUser.isAdmin);
+  constructor(private authService: AuthService, private userService: UserService) { }
 
-    
+  canActivate(): Observable<boolean> {
+    return this.isAdmin();
+  }
+
+  isAdmin() {
+    return this.authService.authF.authState
+      .switchMap(user => this.userService.getUser(user.uid))
+      .map(appUser => appUser.isAdmin);
   }
 }

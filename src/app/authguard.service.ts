@@ -7,16 +7,15 @@ import 'rxjs/add/operator/map';
 })
 export class AuthGuardService implements CanActivate {
 
-  constructor(private authService:AuthService,private router:Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  canActivate()
-  {
+  canActivate() {
     return this.authService.authF.authState
-    .map(user=>{
-    if(user) return true;
+      .map(user => {
+        if (user) return true;
 
-    this.router.navigate(['login']);
-    return false;
-    });
+        this.router.navigate(['login']);
+        return false;
+      });
   }
 }

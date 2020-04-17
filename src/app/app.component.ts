@@ -9,16 +9,19 @@ import { UserService } from './user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'organicShop';
 
-  constructor(private authService:AuthService,router:Router,userService:UserService)
-  {
+
+  constructor(private authService: AuthService, private router: Router, private userService: UserService) {
+    this.saveUserInformations();
+  }
+
+  //save user into DB
+  saveUserInformations() {
     this.authService.authF.authState
-    .subscribe(user=>{
-     if(user)
-     {
-        userService.saveUser(user);
-     }
-    });
+      .subscribe(user => {
+        if (user) {
+          this.userService.saveUser(user);
+        }
+      });
   }
 }
