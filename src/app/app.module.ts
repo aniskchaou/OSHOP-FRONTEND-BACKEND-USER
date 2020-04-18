@@ -19,11 +19,16 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { AuthGuardService } from './authguard.service';
 import { AuthAdminService } from './authadmin.service';
+import { AddProductComponent } from './admin/add-product/add-product.component';
+import {FormsModule} from '@angular/forms';
+import {CustomFormsModule} from 'ng2-validation'
 let routes=[{path:'',component:HomeComponent},
 {path:'products',component:ProductsComponent},
 {path:'shopping-cart',component:ShoppingCartComponent},
 {path:'admin/orders',component:AdminOrdersComponent,canActivate:[AuthGuardService,AuthAdminService]},
 {path:'admin/products',component:AdminProductsComponent,canActivate:[AuthGuardService,AuthAdminService]},
+{path:'admin/addproduct',component:AddProductComponent,canActivate:[AuthGuardService,AuthAdminService]},
+{path:'admin/addproduct/:id',component:AddProductComponent,canActivate:[AuthGuardService,AuthAdminService]},
 {path:'login',component:LoginComponent},
 {path:'my-orders',component:MyOrdersComponent},
 {path:'check-out',component:CheckOutComponent,canActivate:[AuthGuardService]}
@@ -41,11 +46,14 @@ let routes=[{path:'',component:HomeComponent},
     AdminProductsComponent,
     AdminOrdersComponent,
     MyOrdersComponent,
-    CheckOutComponent
+    CheckOutComponent,
+    AddProductComponent
   ],
   //list of modules
   imports: [
     BrowserModule,
+    FormsModule,
+    CustomFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
