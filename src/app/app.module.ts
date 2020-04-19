@@ -23,7 +23,8 @@ import { AddProductComponent } from './admin/add-product/add-product.component';
 import {FormsModule} from '@angular/forms';
 import {CustomFormsModule} from 'ng2-validation';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
-import { ProductCardComponent } from './product-card/product-card.component'
+import { ProductCardComponent } from './product-card/product-card.component';
+import { ShoppingCardSummaryComponent } from './shopping-card-summary/shopping-card-summary.component'
 let routes=[{path:'',component:ProductsComponent},
 {path:'products',component:ProductsComponent},
 {path:'shopping-cart',component:ShoppingCartComponent},
@@ -31,6 +32,7 @@ let routes=[{path:'',component:ProductsComponent},
 {path:'admin/products',component:AdminProductsComponent,canActivate:[AuthGuardService,AuthAdminService]},
 {path:'admin/addproduct',component:AddProductComponent,canActivate:[AuthGuardService,AuthAdminService]},
 {path:'admin/addproduct/:id',component:AddProductComponent,canActivate:[AuthGuardService,AuthAdminService]},
+{path:'order-success/:id',component:OrderSuccessComponent,canActivate:[AuthGuardService,AuthAdminService]},
 {path:'login',component:LoginComponent},
 {path:'my-orders',component:MyOrdersComponent},
 {path:'check-out',component:CheckOutComponent,canActivate:[AuthGuardService]}
@@ -51,7 +53,8 @@ let routes=[{path:'',component:ProductsComponent},
     CheckOutComponent,
     AddProductComponent,
     ProductFilterComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ShoppingCardSummaryComponent
   ],
   //list of modules
   imports: [
