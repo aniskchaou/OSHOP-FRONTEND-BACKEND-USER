@@ -21,8 +21,10 @@ import { AuthGuardService } from './authguard.service';
 import { AuthAdminService } from './authadmin.service';
 import { AddProductComponent } from './admin/add-product/add-product.component';
 import {FormsModule} from '@angular/forms';
-import {CustomFormsModule} from 'ng2-validation'
-let routes=[{path:'',component:HomeComponent},
+import {CustomFormsModule} from 'ng2-validation';
+import { ProductFilterComponent } from './product-filter/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component'
+let routes=[{path:'',component:ProductsComponent},
 {path:'products',component:ProductsComponent},
 {path:'shopping-cart',component:ShoppingCartComponent},
 {path:'admin/orders',component:AdminOrdersComponent,canActivate:[AuthGuardService,AuthAdminService]},
@@ -47,7 +49,9 @@ let routes=[{path:'',component:HomeComponent},
     AdminOrdersComponent,
     MyOrdersComponent,
     CheckOutComponent,
-    AddProductComponent
+    AddProductComponent,
+    ProductFilterComponent,
+    ProductCardComponent
   ],
   //list of modules
   imports: [

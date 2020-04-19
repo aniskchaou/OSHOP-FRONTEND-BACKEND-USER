@@ -3,6 +3,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
 import { AuthService } from '../auth.service';
 import { UserService } from '../user.service';
+import { ShoppingCartService } from '../shopping-cart.service';
 
 
 @Component({
@@ -13,12 +14,12 @@ import { UserService } from '../user.service';
 export class NavBarComponent implements OnInit {
 
   isAdmin = false;
-
-  constructor(public authService: AuthService, private userService: UserService) {
+  itemCount
+  constructor(public authService: AuthService, private userService: UserService,private shoppingCart:ShoppingCartService) {
 
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     
     this.authService.initUser();
 
@@ -30,7 +31,15 @@ export class NavBarComponent implements OnInit {
         });
       }
     });
-
+    let cart=await this.shoppingCart.getCart();
+    cart.subscribe(cart=>{
+      this.itemCount=0;
+       for(let productID in cart.items)
+       {
+         this.itemCount+=cart.items[productID].quantity;
+       }
+    });
+     this.shoppingCart.itemCount=this.itemCount;
 
   }
 
