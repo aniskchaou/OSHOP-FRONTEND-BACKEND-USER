@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
-import { AuthService } from '../auth.service';
-import { UserService } from '../user.service';
-import { ShoppingCartService } from '../shopping-cart.service';
+import { AuthService } from '../shared/services/auth.service';
+import { UserService } from '../shared/services/user.service';
+import { ShoppingCartService } from '../shared/services/shopping-cart.service';
 
 
 @Component({

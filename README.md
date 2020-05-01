@@ -1,27 +1,32 @@
-# OrganicShop
+## Objective
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+  
+This project consists of developing a real e-commerce application for an  organic shop using Angular 7, Firebase  (used for authentification and storage of data)  and Bootstrap 4.  
+  
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  
+  
+select  the  category  and  see  all the  products  in that  category.  
+Add a product to the shopping cart. (it  change  the quantity and number of items in a shopping cart.)  
+check out the  shopping  form and the  summary  of all the  products  in  shopping cart.  
+Send the order which it could be visible only by administrator  
+The administrator can manage orders and products.  
+The authentication and authorization are performed by Gmail of the user.  
+  
 
-## Code scaffolding
+## Screenshot
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ ![enter image description here](1.jpg)
+List of product by category
+![enter image description here](2.jpg)
+List of product in  shopping cart
+![enter image description here](3.jpg)
+The shipping form
+![enter image description here](4.jpg)
+The products management 
+  
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## technologies
+Angular 7, Firebase, Bootstrap 4, font-awesome, REST API
