@@ -20,26 +20,23 @@ export class ProductsComponent implements OnInit,OnDestroy {
   category;
   subscription:Subscription;
   filteredProducts:Product[];
+  
   constructor(private shoppingCart:ShoppingCartService,private productService:ProductService,private route:ActivatedRoute){
-    this.productService.getAll().subscribe(products=>{this.products=products
-      
-     
-      
-    this.route.queryParamMap.subscribe(params=>{
+    this.productService.getAll().subscribe(products=>{
+      this.products=products
+
+      //get url param
+      this.route.queryParamMap.subscribe(params=>{
       this.category=params.get('category');
       
+      //filter by category
       if(this.category)
       {
        this.filteredProducts=this.products.filter(p => p.category === this.category)
       }else
       {
         this.filteredProducts=this.products;
-        console.log(this.products)
-        console.log(this.filteredProducts)
-      }
-    
-        
-      
+      } 
     });
     });
 

@@ -37,11 +37,7 @@ export class CheckOutComponent implements OnInit,OnDestroy {
 
  async placeOrder()
   {
-   /* console.log(this.cart.items);
-    (this.cart.items as Array<ShoppingCartItem>).map(i=>{
-      console.log(i);
-      }
-    );*/
+  
     for(let it in this.cart.items)
     {
       this.listItems.push(this.cart.items[it]);

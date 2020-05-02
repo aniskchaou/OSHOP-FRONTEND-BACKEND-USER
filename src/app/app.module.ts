@@ -9,10 +9,8 @@ import { environment } from '../environments/environment';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { ShoppingCartComponent } from './shopping/components/shopping-cart/shopping-cart.component';
-
 import { OrderSuccessComponent } from './shopping/components/order-success/order-success.component';
 import { LoginComponent } from './login/login.component';
-
 import {RouterModule} from '@angular/router';
 import {APP_BASE_HREF} from '@angular/common';
 import { MyOrdersComponent } from './shopping/components/my-orders/my-orders.component';
@@ -30,6 +28,7 @@ import { AddProductComponent } from './admin/components/add-product/add-product.
 import { ShoppingModule } from './shopping/shopping.module';
 import { ProductsComponent } from './shopping/components/products/products.component';
 
+//routes
 let routes=[
 {path:'',component:ProductsComponent},
 {path:'products',component:ProductsComponent},
@@ -43,6 +42,9 @@ let routes=[
 {path:'my-orders',component:MyOrdersComponent},
 {path:'check-out',component:CheckOutComponent,canActivate:[AuthGuardService]}
 ];
+
+
+//module= component+module+service
 @NgModule({
   //list of components
   declarations: [
@@ -51,18 +53,21 @@ let routes=[
     HomeComponent,
     LoginComponent,
   ],
+
   //list of modules
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    RouterModule.forRoot(routes),
+    AngularFireDatabaseModule, //firebase database
+    AngularFireAuthModule, //firebase auth
+    RouterModule.forRoot(routes),//route
     SharedModule,//shared module
-    ShoppingModule,
-    AdminModule
+    ShoppingModule, //shopping module
+    AdminModule//admin
   ],
+
   //list of services
-  providers: [{provide: APP_BASE_HREF, useValue: '/'}],
-  bootstrap: [AppComponent]
+  providers: [{provide: APP_BASE_HREF, useValue: '/'}],//link by default
+ 
+  bootstrap: [AppComponent] //main component
 })
 export class AppModule { }

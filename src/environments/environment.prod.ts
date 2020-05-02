@@ -1,3 +1,5 @@
+
+//used for connection to fire base
 export const environment = {
   production: false,
   firebase :{

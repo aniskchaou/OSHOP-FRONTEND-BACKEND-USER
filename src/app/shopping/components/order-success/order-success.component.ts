@@ -20,6 +20,5 @@ export class OrderSuccessComponent implements OnInit {
     private authService: AuthService,
     private orderService: OrderService) { 
     
-    //this.orders$ = authService.user.switchMap(u => orderService.getOrdersByUser(u.uid));
   }
 }
