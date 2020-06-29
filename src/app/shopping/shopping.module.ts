@@ -22,7 +22,6 @@ import { AdminModule } from '../admin/admin.module';
     MyOrdersComponent,
     CheckOutComponent,
     ProductFilterComponent,
-    //ProductCardComponent,
     ShoppingCardSummaryComponent],
   imports: [
     SharedModule
