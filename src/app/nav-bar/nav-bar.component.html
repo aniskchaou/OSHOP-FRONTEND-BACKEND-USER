@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+<!--<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
 
 <div class="container">
   
@@ -24,6 +24,7 @@
               <a class="dropdown-item"  routerLink="/admin/orders">Manage Orders</a>
               <a class="dropdown-item"  routerLink="/admin/products">Manage Products</a>
              <!--<a class="dropdown-item" (click)="logout()">Log Out</a>-->
+     <!--   
             </div>
           </li>
     
@@ -31,4 +32,64 @@
     
       </div>
 </div>
+</nav>
+-->
+
+
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+  <div class="container">
+
+   
+    <a class="navbar-brand waves-effect" routerLink="/">  <img src="assets/logo.png"   /> <span class="sr-only">(current)</span></a>
+    <!-- Collapse -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <!-- Left -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link waves-effect" href="#"  routerLink="/">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li *ngIf="authService.user" class="nav-item">
+          <a class="nav-link" routerLink="/login"><i class="fa fa-user" aria-hidden="true"></i></a>
+        </li>
+  
+        <li *ngIf="!authService.user" ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"> <i class="fa fa-user"></i>{{"  Guest"}}</a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" routerLink="/my-orders">My Orders</a>
+            <a class="dropdown-item"  routerLink="/admin/orders">Manage Orders</a>
+            <a class="dropdown-item"  routerLink="/admin/products">Manage Products</a>
+           <!--<a class="dropdown-item" (click)="logout()">Log Out</a>-->
+      
+          </div>
+        </li>
+      </ul>
+
+      <!-- Right -->
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link waves-effect">
+            <span class="badge red z-depth-1 mr-1"> {{itemCount }} </span>
+            <i class="fas fa-shopping-cart"></i>
+            <span class="clearfix d-none d-sm-inline-block"> <a class="nav-link"
+              routerLink="/shopping-cart">
+              My Cart </a> </span>
+          </a>
+        </li>
+       
+      </ul>
+
+    </div>
+
+  </div>
 </nav>

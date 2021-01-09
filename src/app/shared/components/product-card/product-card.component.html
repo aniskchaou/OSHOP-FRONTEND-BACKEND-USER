@@ -1,4 +1,4 @@
-<div  class="card elem-card" >
+<!--<div  class="card elem-card" >
     <img class="card-img-top" [src]="product.image" height="280" >
     <div class="card-body">
       <h5 class="card-title">{{product.title}}</h5>
@@ -22,3 +22,57 @@
 
       </div>
   </div>
+-->
+
+
+  <!--Card-->
+  <div class="card">
+
+    <!--Card image-->
+    <div class="view overlay">
+      <img [src]="product.image" class="card-img-top" height="200" width="100" alt="">
+      <a>
+        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+      </a>
+    </div>
+    <!--Card image-->
+
+    <!--Card content-->
+    <div class="card-body text-center">
+      <!--Category & Title-->
+      <a href="" class="grey-text">
+        <h5>{{product.title}}</h5>
+      </a>
+      <h5>
+        <strong>
+          <a href="" class="dark-grey-text">{{product.title}}
+            <span class="badge badge-pill danger-color">NEW</span>
+          </a>
+        </strong>
+      </h5>
+
+      <h4 class="font-weight-bold blue-text">
+        <strong>{{product.price}}$</strong>
+      </h4>
+
+    </div>
+    <!--Card content-->
+    <div class="card-footer" >
+      <button 
+      *ngIf=" getQuantity() === 0 ; else updateQuantity"
+      (click)="addToCart(product)"
+      class="btn btn-primary btn-block">Add To Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      
+      <ng-template #updateQuantity>
+        <div class="row no-gutters">
+          <div ><button (click)="removeToCart(product)" class="btn btn-secondary btn-sm">-</button></div>
+          <div class="col text-center"> <b>{{getQuantity()}}</b> in cart</div>
+          <div ><button (click)="addToCart(product)" class="btn btn-secondary btn-sm">+</button></div>
+        </div>
+      </ng-template>
+
+
+      </div>
+  </div>
+  <!--Card-->
+

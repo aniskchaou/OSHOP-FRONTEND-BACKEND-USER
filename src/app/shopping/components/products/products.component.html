@@ -1,21 +1,12 @@
-<div class="row" style="margin: 30px;">
-  <div class="col-md-3">
-   <product-filter [category]="category"></product-filter>
+<product-filter [category]="category"></product-filter>
+
+<section class="text-center mb-4">
+  <!--Grid row-->
+  <div class="row wow fadeIn">
+    <ng-container class="row wow fadeIn" *ngFor="let p of filteredProducts  let i=index">
+      <product-card class="col-lg-3 col-md-6 mb-4" [shopping-cart]="cart" [product]="p"></product-card>
+      <div class="w-100" *ngIf="(i+1)%4===0"></div>
+    </ng-container>
+    <!--Grid column-->
   </div>
-  <div class="col">
-      <div class="row">
-        <!-- <grid -->
-          <ng-container *ngFor="let p of filteredProducts  let i=index">
-           
-            <!-- product card -->
-             <div class="col">
-               <product-card [shopping-cart]="cart" [product]="p"></product-card>
-               <div class="w-100" *ngIf="(i+1)%2===0"></div>
-             </div> 
-           </ng-container>   
-       </div>
-  </div>
-</div> 
- 
- 
- 
+</section>
